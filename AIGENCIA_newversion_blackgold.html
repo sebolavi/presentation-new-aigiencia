@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI.GENCIA — New Version Dossier</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#C9A84C;
+  --gold-dark:#8B6914;
+  --gold-soft:#E8C97A;
+  --bg:#080C12;
+  --bg2:#0D1420;
+  --bg3:#131C2E;
+  --text:#E8DCC8;
+  --muted:#8B98A9;
+  --line:rgba(201,168,76,0.16);
+  --white:#F7F3EC;
+  --green:#2ECC71;
+  --blue:#3498DB;
+  --violet:#8E44AD;
+  --orange:#E67E22;
+  --red:#E74C3C;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text)}
+body{font-family:'Nunito',sans-serif;line-height:1.55}
+.page{min-height:100vh;padding:54px 64px 46px;border-bottom:1px solid rgba(255,255,255,0.04);position:relative;overflow:hidden}
+.page::before{content:"";position:absolute;inset:18px;border:1px solid var(--line);pointer-events:none}
+.page-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto}
+.kicker{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);opacity:.95;margin-bottom:18px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-top:30px}
+.wordmark{font-family:'Playfair Display',serif;font-size:76px;line-height:.95;letter-spacing:1px;margin:0 0 16px}
+.wordmark .gold{color:var(--gold)}
+.hook{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:38px;line-height:1.15;color:var(--text);opacity:.95;max-width:700px;margin:0 0 18px}
+.hook em{color:var(--gold)}
+.lead{font-size:18px;color:#d8cdbb;max-width:760px}
+.hero-right{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));border:1px solid var(--line);padding:24px;border-radius:24px;backdrop-filter:blur(4px)}
+.orbit{position:relative;height:420px;border-radius:22px;background:radial-gradient(circle at center, rgba(201,168,76,.08), transparent 45%),linear-gradient(180deg,var(--bg2),#090d13)}
+.orbit-ring,.orbit-ring2{position:absolute;border:1px solid rgba(201,168,76,.18);border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
+.orbit-ring{width:300px;height:300px}
+.orbit-ring2{width:210px;height:210px;border-color:rgba(201,168,76,.09)}
+.center-node{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:108px;height:108px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;border:1.5px solid var(--gold);background:rgba(8,12,18,.94);box-shadow:0 0 0 6px rgba(201,168,76,.04)}
+.center-node span{font-family:'Cormorant Garamond',serif;text-transform:uppercase;letter-spacing:1.3px;font-size:11px;opacity:.7}
+.center-node strong{font-family:'Playfair Display',serif;color:var(--gold);font-size:20px;font-style:italic;font-weight:400}
+.node{position:absolute;width:86px;height:86px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-family:'DM Mono',monospace;font-size:11px;color:#fff;border:1.5px solid currentColor;background:rgba(255,255,255,.02)}
+.n1{left:50%;top:36px;transform:translateX(-50%);color:var(--blue)}
+.n2{right:66px;top:110px;color:var(--gold)}
+.n3{right:90px;bottom:86px;color:var(--green)}
+.n4{left:50%;bottom:34px;transform:translateX(-50%);color:var(--violet)}
+.n5{left:76px;bottom:110px;color:var(--orange)}
+.n6{left:60px;top:112px;color:var(--red)}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.legend-item{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid rgba(255,255,255,.06);border-radius:14px;background:rgba(255,255,255,.02)}
+.dot{width:10px;height:10px;border-radius:50%;margin-top:6px;flex:0 0 10px}
+.dot.blue{background:var(--blue)} .dot.gold{background:var(--gold)} .dot.green{background:var(--green)} .dot.violet{background:var(--violet)} .dot.orange{background:var(--orange)} .dot.red{background:var(--red)}
+.legend-item b{display:block;font-size:12px;color:var(--white);margin-bottom:2px}
+.legend-item span{font-size:12px;color:var(--muted)}
+.title{font-family:'Playfair Display',serif;font-size:44px;line-height:1.05;margin:0 0 14px;color:var(--white)}
+.title em{color:var(--gold);font-style:italic;font-weight:400}
+.section-lead{font-size:17px;color:#d7cbb8;max-width:920px;margin-bottom:28px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:22px;padding:22px 22px 18px}
+.card h3{margin:0 0 10px;font-family:'Playfair Display',serif;font-size:26px;color:var(--white)}
+.card h3 em{color:var(--gold);font-style:italic;font-weight:400}
+.card p{margin:0 0 12px;color:#daccb9;font-size:15px}
+.ul{display:grid;gap:8px;margin-top:12px}
+.li{display:flex;gap:10px;font-size:14px;color:#dbcdb9}
+.li::before{content:"•";color:var(--gold);font-size:18px;line-height:1}
+.band{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+.metric{padding:16px 14px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025)}
+.metric b{display:block;font-family:'Playfair Display',serif;font-size:28px;color:var(--gold-soft);font-weight:700}
+.metric span{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-family:'DM Mono',monospace}
+.arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:24px}
+.arch{padding:20px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01))}
+.arch .num{font-family:'DM Mono',monospace;color:var(--gold);font-size:12px;letter-spacing:2px;margin-bottom:10px}
+.arch h4{margin:0 0 10px;font-family:'Playfair Display',serif;font-size:24px;color:var(--white)}
+.arch p{margin:0;font-size:14px;color:#d6cab6}
+.role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.role{padding:18px;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.02)}
+.role small{font-family:'DM Mono',monospace;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-size:10px}
+.role h4{margin:10px 0 10px;font-family:'Playfair Display',serif;font-size:24px;color:var(--white)}
+.role p{margin:0 0 10px;font-size:14px;color:#daccb9}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pill{padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.08);font-size:11px;color:var(--text);background:rgba(255,255,255,.03);font-family:'DM Mono',monospace}
+.workflow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:26px}
+.step{padding:18px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.02);position:relative}
+.step .s{font-family:'DM Mono',monospace;color:var(--gold);font-size:11px;letter-spacing:2px;margin-bottom:10px}
+.step h4{margin:0 0 8px;font-family:'Playfair Display',serif;color:var(--white);font-size:22px}
+.step p{margin:0;color:#d8ccba;font-size:13px}
+.step::after{content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:22px}
+.step:last-child::after{display:none}
+.big-quote{font-family:'Cormorant Garamond',serif;font-size:40px;line-height:1.12;font-style:italic;color:var(--white);max-width:900px;margin:20px 0}
+.big-quote em{color:var(--gold)}
+.footer-note{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:24px}
+.page-break{break-before:page;page-break-before:always}
+@media print{
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{min-height:auto;height:100vh;break-after:page;page-break-after:always;padding:42px 52px 40px}
+  .page:last-child{break-after:auto;page-break-after:auto}
+}
+@media (max-width:980px){
+  .hero,.grid-2,.grid-3,.arch-grid,.role-grid,.workflow,.band{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<section class="page">
+  <div class="page-inner">
+    <div class="kicker">AI.GENCIA BALI · DOSSIER DE PRÉSENTATION · NEW VERSION</div>
+    <div class="hero">
+      <div>
+        <h1 class="wordmark"><span class="gold">AI</span>.GENCIA <span class="gold">BALI</span></h1>
+        <div class="hook">Votre villa ne dort <em>jamais.</em><br>Votre système d’exploitation non plus.</div>
+        <p class="lead">AI.GENCIA n’est pas un simple PMS. La nouvelle version transforme le produit en véritable couche d’orchestration : cockpit portefeuille, cockpit villa, staff layer, money layer, ledger par villa, paiements, reporting owner et base prête pour la conformité fiscale.</p>
+        <div class="band">
+          <div class="metric"><b>Client</b><span>command center</span></div>
+          <div class="metric"><b>Villa</b><span>ops cockpit</span></div>
+          <div class="metric"><b>Money</b><span>income · outcome · net</span></div>
+          <div class="metric"><b>Sofia</b><span>intel layer</span></div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="orbit">
+          <div class="orbit-ring"></div>
+          <div class="orbit-ring2"></div>
+          <div class="center-node"><span>always on</span><strong>Sofia</strong><span>agency core</span></div>
+          <div class="node n1">Alerts</div>
+          <div class="node n2">Bookings</div>
+          <div class="node n3">Staff</div>
+          <div class="node n4">Money</div>
+          <div class="node n5">Taxes</div>
+          <div class="node n6">Ops</div>
+        </div>
+        <div class="legend">
+          <div class="legend-item"><div class="dot blue"></div><div><b>Client cockpit</b><span>vue globale, alertes urgentes, orbite villas, KPIs</span></div></div>
+          <div class="legend-item"><div class="dot gold"></div><div><b>Villa cockpit</b><span>overview, staff, money, Sofia, settings</span></div></div>
+          <div class="legend-item"><div class="dot green"></div><div><b>Finance layer</b><span>payment events, ledger, owner reports</span></div></div>
+          <div class="legend-item"><div class="dot violet"></div><div><b>Tax-ready</b><span>sorties propres depuis le ledger</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="page-inner">
+    <div class="kicker">01 · LE POSITIONNEMENT</div>
+    <h2 class="title">Hostaway gère les réservations. <em>AI.GENCIA gère la réalité.</em></h2>
+    <p class="section-lead">La nouvelle version clarifie enfin la frontière. Le PMS garde la vérité booking. AI.GENCIA devient la vérité opérations + finance + owner reporting. C’est là que se situe la vraie valeur.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Ce que fait déjà un PMS</h3>
+        <div class="ul">
+          <div class="li">OTA sync</div>
+          <div class="li">bookings</div>
+          <div class="li">messagerie voyageur</div>
+          <div class="li">calendrier</div>
+          <div class="li">payout data</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Ce qu’apporte AI.GENCIA</h3>
+        <div class="ul">
+          <div class="li">staff réel par villa</div>
+          <div class="li">maintenance et incidents</div>
+          <div class="li">money layer lisible</div>
+          <div class="li">ledger par villa</div>
+          <div class="li">owner cockpit + conformité future</div>
+        </div>
+      </div>
+    </div>
+    <div class="big-quote">La nouveauté n’est pas un bouton de plus. <em>C’est la continuité entre terrain, argent et décision.</em></div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="page-inner">
+    <div class="kicker">02 · LA NOUVELLE ARCHITECTURE</div>
+    <h2 class="title">Un produit hiérarchisé : <em>client → villa → modules</em></h2>
+    <div class="arch-grid">
+      <div class="arch"><div class="num">LEVEL 01</div><h4>Client</h4><p>Le portefeuille devient un command center : alertes Sofia urgentes, orbite des villas, KPIs globaux, chiffres du mois, activité courte.</p></div>
+      <div class="arch"><div class="num">LEVEL 02</div><h4>Villa</h4><p>Chaque propriété devient un cockpit structuré, plus clair, plus vivant, plus pilotable que la version précédente.</p></div>
+      <div class="arch"><div class="num">LEVEL 03</div><h4>Modules</h4><p>Overview, Staff, Money, Sofia, Settings. Les blocs utiles existants sont gardés et remis au bon endroit.</p></div>
+      <div class="arch"><div class="num">LEVEL 04</div><h4>System</h4><p>Les événements opérationnels alimentent automatiquement finance, alertes, reporting owner et demain conformité fiscale.</p></div>
+    </div>
+    <div class="grid-2" style="margin-top:24px;">
+      <div class="card">
+        <h3>Ce qui change</h3>
+        <p>On ne montre plus tout au même niveau. La nouvelle version sépare l’immédiat, l’opérationnel et l’analytique. La lecture devient beaucoup plus premium et beaucoup plus utile.</p>
+      </div>
+      <div class="card">
+        <h3>Ce qu’on garde</h3>
+        <p>Les bons blocs déjà codés ne sont pas supprimés. Ils sont réordonnés, regroupés et intégrés dans une architecture plus forte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="page-inner">
+    <div class="kicker">03 · LE COCKPIT CLIENT</div>
+    <h2 class="title">Voir tout de suite ce qui mérite ton <em>attention</em></h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Sofia urgent only</h3>
+        <p>Le haut de page ne doit plus faire du bruit. Seulement les signaux qui comptent vraiment : payout manquant, incident bloquant, coût anormal, problème owner, villa en risque opérationnel.</p>
+      </div>
+      <div class="card">
+        <h3>Orbite des villas</h3>
+        <p>La nouvelle version assume la lecture visuelle du portefeuille. L’orbite n’est pas décorative : elle sert à lire le statut des villas, les intensités et les alertes en un regard.</p>
+      </div>
+      <div class="card">
+        <h3>KPIs + mois</h3>
+        <p>Encaissé, booké, disponible, last minute, chiffres du mois, net agrégé. La vue client devient un vrai centre de pilotage portefeuille.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:22px;">
+      <h3>Le vrai rôle de cette page</h3>
+      <p>Ce n’est pas une page liste. C’est une page décision. Elle doit dire ce qui brûle, où il faut cliquer, quelle villa a besoin d’un cerveau humain et comment le parc se comporte ce mois-ci.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="page-inner">
+    <div class="kicker">04 · LE COCKPIT VILLA</div>
+    <h2 class="title">Chaque villa devient une unité vivante, lisible, <em>pilotable</em></h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Overview</h3>
+        <p>Statut de la villa, occupancy, alertes critiques, activité récente, money snapshot. L’entrée principale d’une propriété doit suffire à comprendre sa situation sans naviguer partout.</p>
+      </div>
+      <div class="card">
+        <h3>Staff</h3>
+        <p>Rôles, équipe, planning, paiements, activité, messages. Le staff cesse d’être un élément externe ou flottant. Il devient une couche interne du cockpit.</p>
+      </div>
+      <div class="card">
+        <h3>Money</h3>
+        <p>Income, outcome, net, timeline annuelle, santé financière. La compta visible devient simple, mais le système derrière devient beaucoup plus solide.</p>
+      </div>
+      <div class="card">
+        <h3>Sofia</h3>
+        <p>Historique d’alertes, audit, messages intelligents, recommandations. Sofia ne fait pas juste apparaître des textes : elle structure la lecture du système.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:22px;">
+      <h3>Settings</h3>
+      <p>OTA refs, Hostaway, contacts, docs utiles, infos villa, intégrations, paramètres money, future couche Xendit et utilities. Les réglages existent mais ne polluent plus la lecture principale.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="page-inner">
+    <div class="kicker">05 · STAFF LAYER</div>
+    <h2 class="title">Le staff n’est plus une note. Il devient une couche active du <em>système</em></h2>
+    <p class="section-lead">La nouvelle version assume une vraie logique de staff OS : rôles par villa, missions, activité, planning, paiements, messages, mémoire. Chaque travailleur compte dans la vérité opérationnelle de la propriété.</p>
+    <div class="role-grid">
+      <div class="role"><small>FIELD</small><h4>Cleaner</h4><p>missions, checklists, validation, preuves, préparation des séjours</p></div>
+      <div class="role"><small>FIELD</small><h4>Gardener / Pool</h4><p>routines, anomalies, suivi récurrent, historique</p></div>
+      <div class="role"><small>FIELD</small><h4>Tukang / Repair</h4><p>tickets, intervention, coût, clôture reliée à la finance</p></div>
+      <div class="role"><small>SERVICE</small><h4>Driver / Massage</h4><p>missions, horaire, statut, lien avec séjour ou guest request</p></div>
+      <div class="role"><small>OPS</small><h4>Manager</h4><p>arbitrage, validation, coordination, suivi global</p></div>
+      <div class="role"><small>OWNER</small><h4>Owner</h4><p>visibilité, transparence, résultat réel, incidents majeurs</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="page-inner">
+    <div class="kicker">06 · MONEY LAYER</div>
+    <h2 class="title">Une compta simple en façade. Une vraie architecture <em>dessous</em>.</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Ce que voit l’utilisateur</h3>
+        <div class="ul">
+          <div class="li">Income</div>
+          <div class="li">Outcome</div>
+          <div class="li">Net</div>
+          <div class="li">Activity</div>
+          <div class="li">Annual view</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Ce que fait le système</h3>
+        <div class="ul">
+          <div class="li">Payment Events</div>
+          <div class="li">Ledger Entries</div>
+          <div class="li">catégories stables par villa</div>
+          <div class="li">owner reports</div>
+          <div class="li">tax-ready summaries</div>
+        </div>
+      </div>
+    </div>
+    <div class="workflow">
+      <div class="step"><div class="s">STEP 01</div><h4>Event</h4><p>paiement, ticket maintenance, salaire, token PLN, payout booking</p></div>
+      <div class="step"><div class="s">STEP 02</div><h4>Payment Event</h4><p>création d’un objet financier propre lié à la villa</p></div>
+      <div class="step"><div class="s">STEP 03</div><h4>Ledger</h4><p>écriture normalisée, catégorisée, réconciliable</p></div>
+      <div class="step"><div class="s">STEP 04</div><h4>Report</h4><p>mise à jour du cockpit villa et du portefeuille owner</p></div>
+      <div class="step"><div class="s">STEP 05</div><h4>Tax-ready</h4><p>sorties propres pour export, synthèse et conformité future</p></div>
+    </div>
+    <div class="card" style="margin-top:22px;">
+      <h3>La vraie nouveauté</h3>
+      <p>La villa n’affiche plus seulement des dépenses. Elle devient un mini business unit : booking revenue, OTA fees, salaires, utilités, maintenance, fournitures, mouvements owner et operating net.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="page-inner">
+    <div class="kicker">07 · XENDIT / LEDGER / TAX FLOW</div>
+    <h2 class="title">Le rail de paiement, le ledger par villa, puis la sortie <em>fiscale</em></h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Xendit</h3>
+        <p>Dans le bon modèle MVP, Xendit sert de payment rail. L’approche la plus propre reste master account + tagging villa, avant éventuelle montée vers des sous-comptes si l’échelle ou la structure légale l’exige.</p>
+        <div class="pill-row">
+          <div class="pill">guest payments</div>
+          <div class="pill">salaries</div>
+          <div class="pill">vendors</div>
+          <div class="pill">owner withdrawals</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Ledger</h3>
+        <p>Chaque Payment Event alimente le ledger interne de la villa. Le ledger n’est pas montré comme un logiciel comptable lourd, mais il rend enfin possible une vérité financière propre, un reporting stable et des sorties tax-ready.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:22px;">
+      <h3>Taxes</h3>
+      <p>Les taxes ne doivent pas être un module manuel isolé. Elles doivent être downstream. Un ledger propre, des catégories stables et des dates fiables permettent demain de produire des exports comptables, synthèses mensuelles, rapports annuels puis conformité plus poussée.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="page-inner">
+    <div class="kicker">08 · SOFIA</div>
+    <h2 class="title">Pas un chatbot. Une couche d’intelligence <em>opérationnelle et financière</em>.</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Ops intelligence</h3>
+        <p>retards, trous de préparation, incidents répétés, validation absente, tâches en dérive, problèmes ouverts trop longtemps</p>
+      </div>
+      <div class="card">
+        <h3>Finance intelligence</h3>
+        <p>spike d’électricité, maintenance anormale, payout manquant, misc expense trop haute, owner withdrawal excessive</p>
+      </div>
+      <div class="card">
+        <h3>Decision layer</h3>
+        <p>ce qu’il faut voir maintenant, ce qui doit être traité, ce qui doit remonter au client, ce qui coûte trop cher</p>
+      </div>
+    </div>
+    <div class="big-quote">Sofia ne remplace pas l’agence. <em>Elle la rend enfin systémique.</em></div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="page-inner">
+    <div class="kicker">09 · CE QUE LA NOUVELLE VERSION APPORTE</div>
+    <h2 class="title">Ce qui n’existait pas : la continuité entre le terrain, l’argent et la <em>décision</em></h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Ce que les outils existants savent faire</h3>
+        <div class="ul">
+          <div class="li">bookings</div>
+          <div class="li">channel sync</div>
+          <div class="li">messagerie voyageur</div>
+          <div class="li">reporting locatif standard</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Ce qu’AI.GENCIA ajoute vraiment</h3>
+        <div class="ul">
+          <div class="li">vue portefeuille + vue villa + vue staff cohérentes</div>
+          <div class="li">ops-to-finance continuity</div>
+          <div class="li">ledger par villa</div>
+          <div class="li">owner reporting réel</div>
+          <div class="li">base sérieuse pour taxes et conformité</div>
+        </div>
+      </div>
+    </div>
+    <div class="big-quote">Là où le PMS sait qu’une réservation existe, <em>AI.GENCIA sait ce qu’elle a coûté, qui a travaillé, ce qui a dérivé et ce qu’il faut montrer au owner.</em></div>
+    <div class="footer-note">NEW VERSION · BLACK GOLD DOSSIER · CLIENT COCKPIT · VILLA COCKPIT · MONEY LAYER · SOFIA · XENDIT · LEDGER · TAX-READY</div>
+  </div>
+</section>
+
+</body>
+</html>
